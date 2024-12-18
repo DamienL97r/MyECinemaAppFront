@@ -3,12 +3,25 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import Navbar from "@/components/navbar"
+import Footer from "@/components/footer";
 
 
 const myriad = localFont({
-  src: "./fonts/MyriadProRegular.ttf",
+  src: [
+    {
+      path:"./fonts/MyriadProRegular.ttf",
+      weight: "400",
+    },
+    {
+      path:"./fonts/MyriadProLight.otf",
+      weight: "300",
+    },
+    {
+      path:"./fonts/MyriadProBold.ttf",
+      weight: "700",
+    }
+  ],
   variable: "--font-myriad",
-  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -22,6 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <Navbar></Navbar>
         {children}
+        <Footer></Footer>
       </body>
     </html>
   );
